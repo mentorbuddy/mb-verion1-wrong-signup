@@ -1,0 +1,47 @@
+<div id="university_show">
+	<div id="show_banner">
+		<div class="wrapper_skinny">
+			<h1><%= @university.title %></h1>
+			<p class="description"><%= @university.description %></p>
+			<% unless @university.itunes.blank? %>
+				<a href="<%= @university.itunes %>" class="subscribe_link">iTunes</a>
+			<% end %>
+			<% unless @university.stitcher.blank? %>
+				<a href="<%= @university.stitcher %>" class="subscribe_link">Stitcher</a>
+			<% end %>
+			<% unless @university.podbay.blank? %>
+				<a href="<%= @university.podbay %>" class="subscribe_link">PodBay</a>
+			<% end %>
+		</div>
+	</div>
+
+	<div id="breadcrumb">
+		<%= link_to universities_path do %>
+			All universities
+			<span>/</span>
+			<%= @university.title %>
+		<% end %>
+	</div>
+
+	<div id="mentors">
+		<div class="wrapper_skinny">
+			<ul class="cf">
+				<% @mentors.each do |mentor| %>
+					<li class="cf">
+						<div class="mentor_thumbnail">
+							<a href="#">
+								<%= image_tag mentor.mentor_thumbnail.url(:medium) %>
+							</a>
+						</div>
+						<div class="mentor_overview">
+							<h2><%= link_to mentor.title, university_mentor_path(@university, mentor) %></h2>
+							<p class="description"><%= truncate(mentor.description, length: 160) %></p>
+						</div>
+					</li>
+				<% end %>
+			</ul>
+
+			<%= will_paginate @mentors, previous_label: "Previous", next_label: "Next" %>
+		</div>
+	</div>
+</div>

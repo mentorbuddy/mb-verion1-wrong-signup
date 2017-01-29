@@ -122,8 +122,8 @@ body {
   }
 }
 
-.podcasts_banner {
-  background-image: image-url("podcasts_banner.jpg");
+.universities_banner {
+  background-image: image-url("universities_banner.jpg");
   margin-bottom: 4rem;
 }
 
@@ -210,4 +210,4 @@ textarea {
 
 @import 'normalize';
 @import 'welcome';
-@import 'podcasts';
+@import 'universities';

@@ -1,25 +1,25 @@
 <div id="background">
   <header class="cf">
     <div class="wrapper_wide">
-      <%= link_to "Podcast.fm", root_path, id: "logo" %>
+      <%= link_to "MentorBuddy", root_path, id: "logo" %>
       <nav>
         <ul>
-          <% unless podcast_signed_in? %>
-            <li><%= link_to "Explore", podcasts_path %></li>
-            <li><%= link_to "Sign In", new_podcast_session_path %></li>
-            <li><%= link_to "Create a Podcast", new_podcast_registration_path %></li>
+          <% unless university_signed_in? %>
+            <li><%= link_to "Explore", universities_path %></li>
+            <li><%= link_to "Sign In", new_university_session_path %></li>
+            <li><%= link_to "Add your University", new_university_registration_path %></li>
           <% else %>
             <li><a href="#">Dashboard</a></li>
-            <li><%= link_to "Explore", podcasts_path %></li>
-            <li><%= link_to "Sign Out", destroy_podcast_session_path, method: :delete %></li>
+            <li><%= link_to "Explore", universities_path %></li>
+            <li><%= link_to "Sign Out", destroy_university_session_path, method: :delete %></li>
           <% end %>
         </ul>
       </nav>
     </div>
   </header>
   <div class="wrapper_skinny">
-    <h1>Discover your new favorite <span class="responsive_break">podcast, or create your own.</span></h1>
-    <%= link_to "Create a Podcast", new_podcast_registration_path, class: "button button_highlight" %>
-    <%= link_to "Explore", podcasts_path, class: "button button_white" %>
+    <h1>Discover mentors from your<span class="responsive_break"> future university</span></h1>
+    <%= link_to "Add your University", new_university_registration_path, class: "button button_highlight" %>
+    <%= link_to "Explore", universities_path, class: "button button_white" %>
   </div>
 </div>

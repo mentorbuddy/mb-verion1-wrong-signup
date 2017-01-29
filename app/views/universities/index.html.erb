@@ -1,0 +1,23 @@
+<div id="banner" class="universities_banner">
+	<h1>Discover your new future university</h1>
+</div>
+
+<div id="universities" class="cf">
+	<div class="wrapper">
+		<ul class="cf">
+			<% @universities.each do |university| %>
+				<%= link_to university do %>
+					<li>
+						<%= image_tag university.thumbnail.url(:medium) %>
+						<div class="university_overview">
+							<h2><%= university.title %></h2>
+							<p class="mentor_count">1 Mentor</p>
+						</div>
+					</li>
+				<% end %>
+			<% end %>
+		</ul>
+
+		<%= will_paginate @universities, previous_label: "Previous", next_label: "Next" %>
+	</div>
+</div>

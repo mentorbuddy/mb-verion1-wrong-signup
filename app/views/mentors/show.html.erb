@@ -1,35 +1,35 @@
-<div id="podcast_show">
+<div id="university_show">
 	<div id="show_banner">
 		<div class="wrapper_skinny">
-			<h1><%= @podcast.title %></h1>
-			<p class="description"><%= @podcast.description %></p>
-			<% unless @podcast.itunes.blank? %>
-				<a href="<%= @podcast.itunes %>" class="subscribe_link">iTunes</a>
+			<h1><%= @university.title %></h1>
+			<p class="description"><%= @university.description %></p>
+			<% unless @university.itunes.blank? %>
+				<a href="<%= @university.itunes %>" class="subscribe_link">iTunes</a>
 			<% end %>
-			<% unless @podcast.stitcher.blank? %>
-				<a href="<%= @podcast.stitcher %>" class="subscribe_link">Stitcher</a>
+			<% unless @university.stitcher.blank? %>
+				<a href="<%= @university.stitcher %>" class="subscribe_link">Stitcher</a>
 			<% end %>
-			<% unless @podcast.podbay.blank? %>
-				<a href="<%= @podcast.podbay %>" class="subscribe_link">PodBay</a>
+			<% unless @university.podbay.blank? %>
+				<a href="<%= @university.podbay %>" class="subscribe_link">PodBay</a>
 			<% end %>
 		</div>
 	</div>
 
 	<div id="breadcrumb">
-		<%= link_to podcasts_path do %>
-			All Podcasts
+		<%= link_to universities_path do %>
+			All universities
 			<span>/</span>
-			<%= link_to @podcast.title, podcast_path(@podcast) %>
+			<%= link_to @university.title, university_path(@university) %>
 			<span>/</span>
-			<%= @episode.title %>
+			<%= @mentor.title %>
 		<% end %>
 	</div>
 
-	<div id="episode_content">
+	<div id="mentor_content">
 		<div class="wrapper_skinny">
-			<%= image_tag @episode.episode_thumbnail.url(:medium), class: "current_episode_thumbnail" %>
-			<h2><%= @episode.title %></h2>
-			<p class="description"><%= @episode.description %></p>
+			<%= image_tag @mentor.mentor_thumbnail.url(:medium), class: "current_mentor_thumbnail" %>
+			<h2><%= @mentor.title %></h2>
+			<p class="description"><%= @mentor.description %></p>
 
 			<div id="jquery_jplayer_1" class="jp-jplayer"></div>
       <div id="jp_container_1" class="jp-audio">
@@ -67,19 +67,19 @@
 		</div>
 	</div>
 
-	<div id="episodes">
+	<div id="mentors">
 		<div class="wrapper_skinny">
 			<ul class="cf">
-				<% @episodes.each do |episode| %>
+				<% @mentors.each do |mentor| %>
 					<li class="cf">
-						<div class="episode_thumbnail">
-							<a href="episode.html">
-								<%= image_tag episode.episode_thumbnail.url(:medium) %>
+						<div class="mentor_thumbnail">
+							<a href="mentor.html">
+								<%= image_tag mentor.mentor_thumbnail.url(:medium) %>
 							</a>
 						</div>
-						<div class="episode_overview">
-							<h2><%= link_to episode.title, podcast_episode_path(@podcast, episode) %></h2>
-							<p class="description"><%= truncate(episode.description, length: 160) %></p>
+						<div class="mentor_overview">
+							<h2><%= link_to mentor.title, university_mentor_path(@university, mentor) %></h2>
+							<p class="description"><%= truncate(mentor.description, length: 160) %></p>
 						</div>
 					</li>
 				<% end %>
@@ -93,7 +93,7 @@
 	  $("#jquery_jplayer_1").jPlayer({
 	    ready: function () {
 	      $(this).jPlayer("setMedia", {
-	        mp3: "<%= @episode.mp3.url %>",
+	        mp3: "<%= @mentor.mp3.url %>",
 	      });
 	    },
 	    swfPath: "/js",

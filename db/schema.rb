@@ -13,25 +13,25 @@
 
 ActiveRecord::Schema.define(version: 20151023152323) do
 
-  create_table "episodes", force: :cascade do |t|
+  create_table "mentors", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "podcast_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "episode_thumbnail_file_name"
-    t.string   "episode_thumbnail_content_type"
-    t.integer  "episode_thumbnail_file_size"
-    t.datetime "episode_thumbnail_updated_at"
+    t.integer  "university_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "mentor_thumbnail_file_name"
+    t.string   "mentor_thumbnail_content_type"
+    t.integer  "mentor_thumbnail_file_size"
+    t.datetime "mentor_thumbnail_updated_at"
     t.string   "mp3_file_name"
     t.string   "mp3_content_type"
     t.integer  "mp3_file_size"
     t.datetime "mp3_updated_at"
   end
 
-  add_index "episodes", ["podcast_id"], name: "index_episodes_on_podcast_id"
+  add_index "mentors", ["university_id"], name: "index_mentors_on_university_id"
 
-  create_table "podcasts", force: :cascade do |t|
+  create_table "universities", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20151023152323) do
     t.datetime "thumbnail_updated_at"
   end
 
-  add_index "podcasts", ["email"], name: "index_podcasts_on_email", unique: true
-  add_index "podcasts", ["reset_password_token"], name: "index_podcasts_on_reset_password_token", unique: true
+  add_index "universities", ["email"], name: "index_universities_on_email", unique: true
+  add_index "universities", ["reset_password_token"], name: "index_universities_on_reset_password_token", unique: true
 
 end

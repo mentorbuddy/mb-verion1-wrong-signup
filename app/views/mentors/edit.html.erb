@@ -1,0 +1,24 @@
+<div id="university_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1><%= @university.title %></h1>
+    </div>
+  </div>
+
+  <div id="links">
+    <div class="wrapper_skinny">
+      <ul>
+        <li><%= link_to "Mentors", root_path %></li>
+        <li><%= link_to "New Mentor", new_university_mentor_path(@university) %></li>
+        <li><%= link_to "Account Settings", edit_university_registration_path %></li>
+        <li><%= link_to "View University", university_path(current_university) %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="form">
+	  <div class="wrapper_skinny">
+			<%= render 'form' %>
+		</div>
+	</div>
+</div>

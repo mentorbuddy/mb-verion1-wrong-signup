@@ -1,6 +1,6 @@
-class DeviseCreatePodcasts < ActiveRecord::Migration
+class DeviseCreateUniversities < ActiveRecord::Migration
   def change
-    create_table(:podcasts) do |t|
+    create_table(:universities) do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -34,9 +34,9 @@ class DeviseCreatePodcasts < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :podcasts, :email,                unique: true
-    add_index :podcasts, :reset_password_token, unique: true
-    # add_index :podcasts, :confirmation_token,   unique: true
-    # add_index :podcasts, :unlock_token,         unique: true
+    add_index :universities, :email,                unique: true
+    add_index :universities, :reset_password_token, unique: true
+    # add_index :universities, :confirmation_token,   unique: true
+    # add_index :universities, :unlock_token,         unique: true
   end
 end
